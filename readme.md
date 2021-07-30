@@ -3,25 +3,35 @@
 ## Dependencias
 
 * Crear Archivo `build.sbt` y agregar todas las dependencias del projecto (jars, scala-version, etc)
+* Crear carpeta `TareaScala/src/main/resources` y Archivo `application.conf`
 * En la carpeta `TestScala/jars` están los dos jars que utilicé
 ### Ejemplo de archivo `build.sbt`
 ```prolog
-name := "TareaScala"
-version := "0.1"
-scalaVersion := "3.0.1"
-idePackagePrefix := Some("app")
+val scala3Version = "3.0.1"
+lazy val root = project
+	.in(file("."))
+	.settings(
+		name := "TareaScala",
+		version := "0.1.0",
+		scalaVersion := scala3Version,
+		idePackagePrefix := Some("app"),
 
-fork in Test:= true
-envVars in Test:= Map("URL_MQ" -> "tcp://localhost:61616",
-	"DRIVER" ->"com.mysql.jdbc.Driver",
-	"URL_DB" -> "jdbc:mysql://localhost:3306/taller",
-	"USERNAME" -> "root",
-	"PASSWORD" -> "password"
-)
-
-libraryDependencies += "org.apache.activemq" % "activemq-all" % "5.16.2"
-libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.45"
+		libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.45",
+		libraryDependencies += "org.apache.activemq" % "activemq-all" % "5.16.2",
+		libraryDependencies += "com.typesafe" % "config" % "1.4.1"
+	)
 ```
+### Ejemplo de archivo `TareaScala/src/main/resources/application.conf`
+```javascript
+{
+    URL_MQ="tcp://localhost:61616",
+    DRIVER="com.mysql.jdbc.Driver",
+    URL_DB="jdbc:mysql://localhost:3306/taller",
+    USERNAME="root",
+    PASSWORD="password"
+ }
+```
+
 ## Database
 
 ### Script para generar tabla y database

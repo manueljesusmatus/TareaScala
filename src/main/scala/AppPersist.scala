@@ -2,14 +2,16 @@ package app
 
 import javax.jms._
 import app.{ScalaPersist, ActiveMQConsumerHandler, ActiveMQProducerHandler}
+import com.typesafe.config.ConfigFactory
 
 object AppPersist {
 	def main(args: Array[String]): Unit = {
-		val urlMQ = System.getenv("URL_MQ")
-		val driver = System.getenv("DRIVER")
-		val urlDB = System.getenv("URL_DB")
-		val username = System.getenv("USERNAME")
-		val password = System.getenv("PASSWORD")
+		var conf = ConfigFactory.load
+		val urlMQ = conf.getString("URL_MQ")
+		val driver = conf.getString("DRIVER")
+		val urlDB = conf.getString("URL_DB")
+		val username = conf.getString("USERNAME")
+		val password = conf.getString("PASSWORD")
 		val queueName = "/persist"
 		val queueNamePub = "/processed"
 		val listaTableColumns: List[String] = List("titles","platforms","metascore","userscore","genre")

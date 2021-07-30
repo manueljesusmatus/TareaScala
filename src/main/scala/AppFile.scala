@@ -2,10 +2,12 @@ package app
 
 import java.io._
 import app.{ScalaBuffer, ActiveMQProducerHandler}
+import com.typesafe.config.ConfigFactory
 
 object AppFile {
 	def main(args: Array[String]): Unit = {
-		val urlMQ = System.getenv("URL_MQ")
+		var conf = ConfigFactory.load
+		val urlMQ = conf.getString("URL_MQ")
 		val fileName = "test.txt"
 		val queueName = "/persist"
 
