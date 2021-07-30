@@ -1,5 +1,6 @@
 ### Config ###
 build.sbt
+setenv.sh
 
 ### Scala ###
 *.class
@@ -21,3 +22,10 @@ project/plugins/project/
 .bsp
 .idea
 out/
+
+### VSCode ###
+.bloop
+.metals
+.vscode
+project/metals.sbt
+project/project/
