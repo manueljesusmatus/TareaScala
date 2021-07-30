@@ -1,0 +1,12 @@
+Knockout City5,PC,80.0,6.6,action
+Knockout City6,PC,80.0,6.6,action
+Knockout City7,PC,80.0,6.6,action
+Knockout City8,PC,80.0,6.6,action
+
+
+
+URL_MQ=tcp://localhost:61616;
+DRIVER=com.mysql.jdbc.Driver;
+URL_DB=jdbc:mysql://localhost:3306/taller?useSSL=false;
+USERNAME=root;
+PASSWORD=password;
