@@ -8,7 +8,7 @@ object AppFile {
 	def main(args: Array[String]): Unit = {
 		var conf = ConfigFactory.load
 		val urlMQ = conf.getString("URL_MQ")
-		val fileName = "test.txt"
+		val fileName = "archivo.csv"
 		val queueName = "/persist"
 
 		val aux = new ScalaBuffer()
