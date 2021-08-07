@@ -4,7 +4,7 @@ import javax.jms._
 import app.{ScalaPersist, ActiveMQConsumerHandler, ActiveMQProducerHandler}
 import com.typesafe.config.ConfigFactory
 
-object Host {
+object AppHost {
   def main(args: Array[String]): Unit = {
     var conf = ConfigFactory.load
     val urlMQ = conf.getString("URL_MQ")
