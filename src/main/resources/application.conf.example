@@ -1,0 +1,7 @@
+{
+    URL_MQ="tcp://localhost:61616",
+    DRIVER="com.mysql.jdbc.Driver",
+    URL_DB="jdbc:mysql://localhost:6033/taller",
+    USERNAME="root",
+    PASSWORD="my_secret_password"
+}
