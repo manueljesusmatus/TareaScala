@@ -54,7 +54,9 @@ class ScalaPersist(pdriver: String, purl: String, pusername: String, ppassword: 
 	def create(table:String, tableColumns: List[String], lista: List[String]): Int ={
 		try{
 			val statement = connection.createStatement()
-			val query = s"INSERT into $table( ${tableColumns(0)},${tableColumns(1)},${tableColumns(2)},${tableColumns(3)},${tableColumns(4)} ) values ('${lista(0)}','${lista(1)}','${lista(2).toFloat}','${lista(3).toFloat}','${lista(4)}')"
+			tableColumns.mkString(",")
+			val query = s"INSERT into ${table} ( ${tableColumns.mkString(",")} ) values ('${lista.mkString("','")}') "
+
 			println(s"[INFO] ejecutando : $query")
 			statement.executeUpdate(query)
 			statement.close()
