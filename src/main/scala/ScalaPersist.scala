@@ -68,6 +68,25 @@ class ScalaPersist(pdriver: String, purl: String, pusername: String, ppassword: 
 		}
 	}
 
+	def getTextById( qryId:Int, tableName:String ): String = {
+		var row: String = ""
+		try {
+			val statement = connection.createStatement()
+			val qry = s"SELECT * FROM $tableName WHERE id=$qryId"
+			println(s"[INFO] ejecutando : $qry")
+			val result = statement.executeQuery(qry)
+			while(result.next()){
+				row = s"${result.getString("titles")},${result.getString("platforms")},${result.getString("metascore")},${result.getString("userscore")},${result.getString("genre")}"
+			}
+			statement.close()
+			println(s"[INFO] row : $row")
+			return row
+		} catch{
+			case e => e.printStackTrace()
+				return row
+		}
+	}
+
 	def closeDB(): Unit ={
 		connection.close()
 	}
