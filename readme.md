@@ -50,4 +50,20 @@ CREATE TABLE `games` (
 
 ALTER TABLE `games` ADD PRIMARY KEY (`id`);
 ALTER TABLE `games` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+CREATE TABLE `switch_games` (
+  `id` int(11) NOT NULL,
+  `metascore` float NOT NULL,
+  `userscore` float NOT NULL,
+  `genre` varchar(255) NOT NULL,
+  `titles` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `switch_games`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `switch_games`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 ```
