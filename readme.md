@@ -2,25 +2,9 @@
 
 ## Dependencias
 
-* Crear Archivo `build.sbt` y agregar todas las dependencias del projecto (jars, scala-version, etc)
-* Crear carpeta `TareaScala/src/main/resources` y Archivo `application.conf`
+* Navegar a `TareaScala/src/main/resources` y renombrar el archivo `application.conf.example` por `application.conf`, luego configurar los datos de la cola ActiveMQ y la Base de Datos
 * En la carpeta `TestScala/jars` están los dos jars que utilicé
-### Ejemplo de archivo `build.sbt`
-```prolog
-val scala3Version = "3.0.1"
-lazy val root = project
-	.in(file("."))
-	.settings(
-		name := "TareaScala",
-		version := "0.1.0",
-		scalaVersion := scala3Version,
-		idePackagePrefix := Some("app"),
 
-		libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.45",
-		libraryDependencies += "org.apache.activemq" % "activemq-all" % "5.16.2",
-		libraryDependencies += "com.typesafe" % "config" % "1.4.1"
-	)
-```
 ### Ejemplo de archivo `TareaScala/src/main/resources/application.conf`
 ```javascript
 {
@@ -65,5 +49,4 @@ ALTER TABLE `switch_games`
 ALTER TABLE `switch_games`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
-
 ```
