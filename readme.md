@@ -4,7 +4,7 @@
 * Gonzalo Fernández
 * Matías Guzmán
 * Manuel Matus
-* Ándres Shehadeh
+* Andrés Shehadeh
 
 ## Dependencias
 [![activemq](https://img.shields.io/badge/activemq--all-5.16.2-blue)](https://activemq.apache.org/components/classic/download/) [![mysql-connector](https://img.shields.io/badge/mysql--connector-5.1.45-blue)](https://downloads.mysql.com/archives/installer/) [![config](https://img.shields.io/badge/com.typesafe.config-1.4.1-blue)](https://github.com/lightbend/config)
